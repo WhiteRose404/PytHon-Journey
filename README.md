@@ -51,3 +51,60 @@ you should see something like python version 3.10 or above.
 
 # Basic Operation
 
+Python divides the operators in the following groups:
+<ul>
+  <li><h3>Arithmetic operators</h3></li>
+  <p>Arithmetic operators are used with numeric values to perform common mathematical operations:</p>
+  <p>Addition + , Subtraction -, Multiplication *, Division /, Modulus %, Exponentiation **, Floor division	//.</p>
+  <li><h3>Assignment operators</h3></li>
+  <p>Assignment operators are used to assign values to variables:</p>
+  <ul>
+    <li><p>Using usual operation =, +=, -=, *=, , **=, %=, /=, //=</p></li>
+    <li><p>Using binary opeation >>=, <<=, &=, |=, ^=</p></li>
+  </ul>
+  <p> In general A(ope)=B ===> A = A (ope) B </p>
+  <p> For Example A+=B ===> A = A + B
+  <li><h3>Comparison operators</h3></li>
+  <p>Comparison operators are used to compare two values:</p>
+  <p> == , <, >, <=, >=, !=.</p>
+  <li><h3>Logical operators</h3></li>
+  <p>Logical operators are used to combine conditional statements:</p>
+  <ul>
+    <li><p><strong>and:</strong>returns true if the two entries are true otherwise false</p></li>
+    <li><p><strong>or:</strong>returns true if one of two entries is true otherwise false</p></li>
+    <li><p><strong>not:</strong>reverse the result, returns False if the result is true</p></li>
+  </ul>
+    <p>For example :</p>
+  <ul>
+    <li><code>4>5 and 2<5 is False</code></li>
+    <li><code>4>5 or 2<5 is True</code></li>
+    <li><code>not  (4>5 and 2<5) is True</code></li>
+  </ul>
+  <li><h3>Identity operators</h3></li>
+  <p>Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:</p>
+  <ul>
+    <li>is : Returns True if both variables are the same object</li>
+    <li>is not: Returns True if both variables are not the same object</li>
+  </ul>
+  <code>
+    A = "this is an object"; 
+    B = A;
+    A is B # Returns true since B is a refernce to A so A, B repersent the same object
+  </code>
+  <li><h3>Membership operators</h3></li>
+    <p>Membership operators are used to test if a sequence is presented in an object:</p>
+    <ul>
+      <li>in: 	Returns True if a sequence with the specified value is present in the object</li>
+      <li>not in: 	Returns True if a sequence with the specified value is not present in the object</li>
+    </ul>   
+    <li><h3>Bitwise operators</h3></li>
+    <ul>
+        <li>& Sets each bit to 1 if both bits are 1, for example 1 & 1 => 1 </li>
+        <li>| Sets each bit to 1 if one of two bits is 1, for example 1 | 0 => 0</li>
+        <li>^	Sets each bit to 1 if only one of two bits is 1, for example 1 & 1 => 0, 0 & 1 => 1,0 & 0 => 0</li>
+        <li>~ Inverts all the bits for example ~1 => -2 (due to using 2's complement form).</li>
+        <li><<	Zero fill left shift	Shift left by pushing zeros in from the right and let the leftmost bits fall off for example 2<<3 = 16</li>
+        <li>>> Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off for example 16>>3 = 2</li>
+      </ul>
+    </ul>
+ </ul>
