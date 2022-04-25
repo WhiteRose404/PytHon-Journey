@@ -1,0 +1,74 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* header */
+body{
+    background-color: azure;
+}
+
+header{
+    background-color: #1F2937;
+    color: azure;
+    padding: 1rem;
+}
+
+header *{
+    list-style-type: none;
+    color: inherit;
+    text-decoration: none;
+
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+ul .Logo{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-right: auto;
+}
+ul .links{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* main */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+section{
+    background-color: rgb(224, 247, 247);
+    border-radius: 15px;
+    margin: 30px;
+    border: 5px solid rgba(221, 200, 250,0.25) ;
+}
+section h2,button{
+    text-align: center;
+    padding:15px;
+}
+
+
+
+/* footer */
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #1F2900;
+    color: azure;
+    padding: 10px;
+    font-family: fantasy;
+    font-weight: 800;
+}
