@@ -105,3 +105,66 @@
 
 # the rest of the exercices 
 # https://pythonnumericalmethods.berkeley.edu/notebooks/chapter02.08-Summary-and-Problems.html#problems
+
+
+# Question 11
+# # Get the unique element from (2, 3, 2, 3, 1, 2, 5).
+# mytuples = tuple(set((2, 3, 2, 3, 1, 2, 5)))
+# print(mytuples)
+
+# Question 12
+# # Assign (2, 3, 2) to set_a, and (1, 2, 3) to set_b. Get the following:
+# # union of set_a and set_b
+# # intersection of set_a and set_b
+# # difference of set_a to set_b using difference method
+# set_a = {2, 3, 2}
+# set_b = {1, 2, 3}
+
+# print(set_a | set_b)
+# print(set_a & set_b)
+# print(set_b - set_a)
+
+# Question 13
+
+# # Create a dictionary that has the keys ‘A’, ‘B’, ‘C’
+# # with values ‘a’, ‘b’, ‘c’ individually. Print all the keys in the dictionary.
+
+# di = { 'A':'a', 'B':'b', 'C':'c' }
+# print(di.keys())
+# print('B' in di.keys())
+
+# Question 14
+
+# import numpy as np
+
+# arr = np.linspace(-10,10,100)
+# print(arr)
+
+# Question 15
+
+# import numpy as np
+
+# #   Let array_a be an array [-1, 0, 1, 2, 0, 3].
+# #   Write a command that will return an array consisting of
+# #   all the elements of array_a that are larger than zero.
+# #   Hint: Use logical expression as the index of the array.
+
+# array_a = np.array([-1, 0, 1, 2, 0, 3])
+# array_b = array_a[array_a>0]
+
+# print(array_b)
+
+
+# Question 16
+
+# import numpy as np
+
+# #    Create an array y=⎛⎝⎜323528359⎞⎠⎟ and calculate the transpose of the array.
+
+# array_a = np.array([[3, 5, 3],[2, 2, 5],[3, 8, 9]])
+# print(array_a.T)
+
+# #   create a zero array with size (2, 4).
+# array_a = np.zeros((2,4))
+# array_a[:,1] = 1
+# print(array_a)
