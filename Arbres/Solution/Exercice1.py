@@ -11,6 +11,10 @@ class Arbre:
 # 2.Insertion dans un arbre
 
 def inserer(A,info,pos):
+    """
+        Insert into the tree in three specifc ways:
+            Here , left, right
+    """
     N = Arbre(info);
     if(pos == 'right'): A.droit = N
     elif(pos == 'left'): A.gauche = N
@@ -103,16 +107,37 @@ def listeDenoeudsParNiveau(A,N):
 
 # 7. def parfaitComplet(A): qui retourne True si l’arbre A est parfait complet, False sinon
 def parfaitComplet(A):
-    pass
+    for i in range(nombreDeNiveaux(A)+1):
+        if nombreDeNœudsParNiveau(A,i) != 2**i: return False
+    return True
 
 # 8. def parfait(A): qui retourne True si l’arbre A est parfait ,False sinon
+def parfait(A):
+    for i in range(nombreDeNiveaux(A)):
+        if nombreDeNœudsParNiveau(A,i) != 2**i: return False
+    return True
+
 
 # 9. def arbreDerecherche(A): qui retourne True si l’arbre A est un arbre de recherche, False sinon
+def arbreDerecherche(A):
+    if A == None:
+        return True
+    if A.gauche != None:
+        if A.info < A.gauche.info:
+            return False;
+    if A.droit != None:
+        if A.info > A.droit.info:
+            return False    
+    return arbreDerecherche(A.gauche) and arbreDerecherche(A.droit)
 
 # 10. def transformerListe(L,A,i=0) :qui permet de transformer une liste simple vers un arbre binaire parfait.
+def transformerListe(L,A,i=0):
+    pass
+
 
 # 11. def transformerArbre(A,L) :qui permet de transformer un arbre binaire parfait vers une liste simple.
-
+def transformerArbre(A,L) :
+    pass
 
 
 
@@ -133,21 +158,21 @@ def parfaitComplet(A):
 
 
 A=Arbre()
-inserer(A,'A','Here')
-inserer(A,'B','left')
-inserer(A,'C','right')
-inserer(A.gauche ,'D','left')
-inserer(A.gauche,'E','right')
-inserer(A.droit,'F','left')
-inserer(A.droit,'G','right')
-inserer(A.gauche.gauche ,'H','left')
-inserer(A.gauche.gauche,'I','right')
-inserer(A.gauche.droit,'J','left')
-inserer(A.gauche.droit,'K','right')
-inserer(A.droit.gauche,'L','left')
-inserer(A.droit.gauche,'M','right')
-inserer(A.droit.droit,'N','left')
-inserer(A.droit.droit,'O','right')
+inserer(A,10,'Here')
+inserer(A,5,'left')
+inserer(A,15,'right')
+inserer(A.gauche ,2,'left')
+inserer(A.gauche,7,'right')
+inserer(A.droit,12,'left')
+inserer(A.droit,17,'right')
+inserer(A.gauche.gauche ,1,'left')
+inserer(A.gauche.gauche,3,'right')
+inserer(A.gauche.droit,6,'left')
+inserer(A.gauche.droit,8,'right')
+inserer(A.droit.gauche,11,'left')
+inserer(A.droit.gauche,7,'right')
+inserer(A.droit.droit,16,'left')
+inserer(A.droit.droit,18,'right')
 
 
 affichageEnLargeur(A)
@@ -156,3 +181,5 @@ x = 'X'
 
 print(f"Does {x} exists ?",chercher(x,A));
 print(listeDenoeudsParNiveau(A,2));
+print(parfaitComplet(A));
+print(arbreDerecherche(A))
