@@ -113,11 +113,81 @@ def RC4Fichier(fich,Clef,fichChiffre):
     return "Done."
 
 
+# Le but de cet exercice est de réaliser une application de gestion de notes des élèves d’un centre de CPGE .
+# • Un élève sera représenté dans ce programme par : numIns, nom, classe, niveau.
+# • Une matière sera représentée dans ce programme par : codeMat, intitulé,coeff.
+# • Un examen sera représenté dans ce programme par : numIns, codeMat ,note .
+
+# Eleve = {
+#     'numIns':[],
+#     'nom':[],
+#     'classe':[],
+#     'niveau':[]
+# }
+# Matiere = {
+#     'codeMat':[],
+#     'intitule':[],
+#     'coef':[],
+# }
+# Examen = {
+#     'numIns':[],
+#     'codeMat':[],
+#     'note':[],
+# }
+import json
+#           Questions :Ecrire les fonctions suivantes :
+#   • def ajouterEtudiant (numIns, nom, classe, niveau, fichEtudiants) qui permet d’ajouter un nouvel
+#   élève .
+
+def ajouterEtudiant(numIns,nom,classe,niveau,fichEtudiants):
+    print("Writing...")
+    table = json.load(open(fichEtudiants,mode="r"))
+    table['Eleve']['numIns'].append(numIns)
+    table['Eleve']['nom'].append(nom)
+    table['Eleve']['classe'].append(classe)
+    table['Eleve']['niveau'].append(niveau)
+    json.dump(table,open(fichEtudiants,mode="w"))
+    print("Done.")
+
+
+# • def afficherEtudiant (numIns, fichEtudiants) qui permet d’afficher un éléve donné par son numIns
+
+def afficherEtudiant(numIns, fichEtudiants):
+    table = json.load(open(fichEtudiants,mode='r'))
+    index = table['Eleve']['numIns'].index(numIns)
+    EleveTable = table['Eleve']
+    print(f"Name: {EleveTable['nom'][index]} Class = {EleveTable['classe'][index]} Niveau = {EleveTable['niveau'][index]}")
 
 
 
 
-#########################Test
+# • def ajouterMatiere (codeMat, intitulé,coeff, fichMatieres) qui permet d’ajouter une nouvel matière .
+
+def ajouterMatiere(codeMat,intitule,coeff,fichEtudiants):
+    print("Writing...")
+    table = json.load(open(fichEtudiants,mode="r"))
+    table['Matiere']['codeMat'].append(codeMat)
+    table['Matiere']['intitule'].append(intitule)
+    table['Matiere']['coef'].append(coeff)
+    json.dump(table,open(fichEtudiants,mode="w"))
+    print("Done.")
+
+
+# • def afficherMatiere (codeMat, fichMatieres ) qui permet d’afficher une matière donnée par son
+# codeMat.
+
+def afficherMatiere (codeMat, fichMatieres ):
+    table = json.load(open(fichMatieres,mode='r'))
+    EleveTable = table['Matiere']
+    index = EleveTable['codeMat'].index(codeMat)
+    print(f"intitulé: {EleveTable['intitule'][index]} Coef = {EleveTable['coef'][index]}")
+
+
+
+
+
+
+######################### Test Cases
 #exercice 1
 
 # Folder = Path.cwd() / "Exercice1Lab"
@@ -130,15 +200,43 @@ def RC4Fichier(fich,Clef,fichChiffre):
 
 #exercice 2
 
-Folder = Path.cwd() / "Exercice2Lab"
+# Folder = Path.cwd() / "Exercice2Lab"
+# Folder.mkdir(exist_ok=True)
+
+# ficher = Folder / "encryptedWords.txt"
+# ficher.touch(exist_ok=True)
+
+
+# pat = input("enter the path to your folder :")
+# # print(Lire(pat))
+# # print(occurance(pat))
+
+# print(RC4Fichier(pat,"NightWalker",ficher))
+
+
+#exercice 3
+
+
+Folder = Path.cwd() / "Exercice3Lab"
 Folder.mkdir(exist_ok=True)
 
-ficher = Folder / "encryptedWords.txt"
-ficher.touch(exist_ok=True)
+ficher = Folder / "Database.json"
+# ficher.touch(exist_ok=True)
+if not ficher.exists():
+    print("ERROR: the database does not exist")
+    exit(0)
 
+# ajouterEtudiant(0,"Ahmed","Math","9",ficher)
+# ajouterEtudiant(1,"toufiq","physic","5",ficher)
+# ajouterEtudiant(3,"Right","Arabic","9",ficher)
+# ajouterEtudiant(2,"Peaky","French","9",ficher)
+# ajouterEtudiant(4,"Tom","Useless","8",ficher)
+# ajouterEtudiant(5,"Arthur","Happend","12",ficher)
+afficherEtudiant(5,ficher)
 
-pat = input("enter the path to your folder :")
-# print(Lire(pat))
-# print(occurance(pat))
-
-print(RC4Fichier(pat,"NightWalker",ficher))
+ajouterMatiere(0,"Philosophy",15,ficher)
+ajouterMatiere(1,"Arabic",5,ficher)
+ajouterMatiere(3,"Francais",3,ficher)
+ajouterMatiere(2,"Math",7,ficher)
+ajouterMatiere(4,"Physiq",8,ficher)
+afficherMatiere(1,ficher)
