@@ -1,3 +1,4 @@
+from decimal import DivisionByZero
 import numpy as np
 
 # 1- Ecrire la fonction dichotomie(f,a,b,epsilon) qui permet d’encadrer la solution cherchée dans un
@@ -42,9 +43,11 @@ def lagrange(f,a,fixe,epsilon):
     y = a - ((fixe - a)/(eval - val_f))*val_f
     if y*a > 0: a = y
     else: fixe = y
-    print(a)
-    input()
     return lagrange(f,y,fixe,epsilon)
+
+def dervie(f,x,h):
+    if(h == 0): raise DivisionByZero
+    return (f(x+h)-f(x))/h
 
 
 def secante(f,a,b,epsilon):
@@ -62,4 +65,5 @@ x = spy.symbols('x')
 f = x**2-3
 print(f"the result is {lagrange(f,1.5,2,0.01)}")
 print(f"the result is {secante(lambda x: x**2-3,1.5,2,0.01)}")
+print(f"the result of divide function is {f.diff().evalf(subs={x:5})} , {dervie((lambda x: x**2-3),5,0.00001)}")
 # print(dichotomie( lambda x: np.cos(x)+np.sin(x), 0, np.pi, 1e-10))
